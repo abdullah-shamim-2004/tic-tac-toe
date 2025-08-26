@@ -39,10 +39,17 @@ body {
   color: #fff;
 }
 .msg-container {
-  height: 40vmin;
+  height: 100vmin;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
 }
-.win {
+.msg {
   font-size: 5vmin;
+  color: white;
+  line-height: 1.6;
 }
 #new-btn {
   padding: 1rem;
