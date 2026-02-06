@@ -13,7 +13,7 @@ const winPattarn = [
   [2, 5, 8],
   [2, 4, 6],
   [3, 4, 5],
-  [6, 7, 6],
+  [6, 7, 8],
 ];
 
 // Make some arrow function for reset or new game
@@ -39,8 +39,10 @@ const enableBoxes = () => {
 };
 
 // check who is the winner with loop and condintion
+let count = 0;
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
+    count++;
     if (turn0) {
       box.innerText = "O";
       turn0 = false;
@@ -51,6 +53,10 @@ boxes.forEach((box) => {
     box.disabled = true;
 
     checkWinner();
+    if (count === 9) {
+      msg.innerText = "Match Draw! Please try again.";
+      msgContainer.classList.remove("hide");
+    }
   });
 });
 
