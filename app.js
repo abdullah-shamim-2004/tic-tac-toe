@@ -43,6 +43,7 @@ let count = 0;
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
     count++;
+    console.log(count);
     if (turn0) {
       box.innerText = "O";
       turn0 = false;
@@ -73,14 +74,18 @@ const checkWinner = () => {
     let pos1val = boxes[pattarn[0]].innerText;
     let pos2val = boxes[pattarn[1]].innerText;
     let pos3val = boxes[pattarn[2]].innerText;
+    // console.log(pos1val, pos2val, pos3val);
+    // console.log(pattarn[0]);
 
     if (pos1val != "" && pos2val != "" && pos3val != "") {
       if (pos1val === pos2val && pos2val === pos3val) {
         console.log("winner", pos1val);
         showWinner(pos1val);
+        count = 0;
       }
     }
   }
 };
+
 newGameBtn.addEventListener("click", resetGame);
 resetBtn.addEventListener("click", resetGame);
